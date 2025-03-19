@@ -1,0 +1,9 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#2d3748"/>
+  <circle cx="100" cy="100" r="40" fill="#7f9cf5"/>
+  <circle cx="200" cy="100" r="40" fill="#6875f5"/>
+  <circle cx="300" cy="100" r="40" fill="#5850ec"/>
+  <path d="M140 100 L160 100 M240 100 L260 100" stroke="#a3bffa" stroke-width="4"/>
+  <path d="M100 140 L100 200 L300 200 L300 140" stroke="#a3bffa" stroke-width="4" fill="none"/>
+  <text x="200" y="250" font-family="Arial" font-size="24" text-anchor="middle" fill="white">Temporal Features</text>
+</svg>

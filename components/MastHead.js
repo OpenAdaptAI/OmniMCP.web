@@ -2,250 +2,248 @@ import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowPointer } from '@fortawesome/free-solid-svg-icons'
+import { faArrowPointer, faBars, faX } from '@fortawesome/free-solid-svg-icons'
 import {
     faLinkedin,
     faDiscord,
     faGithub,
     faXTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 import AnimatedBackground from '@components/AnimatedBackground'
-import AnimatedLogo from '@components/AnimatedLogo'
 import EmailForm from '@components/EmailForm'
 
 import styles from './MastHead.module.css'
 
-// Import the Sketch component dynamically and set ssr to false
-const SketchNoSSR = dynamic(() => import('./Sketch'), {
-    ssr: false,
-})
-
-const CarouselSection = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const carouselItems = [
-        "Show, don't tell.",
-        "Perform, don't prompt.",
-        "Record, replay, and share.",
-        //"No prompting required.",
-    ];
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentIndex((prevIndex) => 
-                prevIndex === carouselItems.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 4000);
-
-        return () => clearInterval(timer);
-    }, []);
-
-    return (
-        <div className="relative h-12 w-full overflow-hidden">
-            <div className="absolute w-full">
-                {carouselItems.map((item, index) => (
-                    <div
-                        key={index}
-                        className={`
-                            absolute top-0 left-0 w-full
-                            transform transition-all duration-300 ease-in-out
-                            ${index === currentIndex ? 
-                                'opacity-100 translate-y-0' : 
-                                'opacity-0 translate-y-8'
-                            }
-                        `}
-                    >
-                        <span className="inline-block p-2 w-full text-center">
-                            {item}
-                        </span>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-export default function Home() {
-    const videoRef = useRef(null)
-    const [poster, setPoster] = useState('')
-
-    useEffect(() => {
-        const videoElement = videoRef.current
-
-        if (videoElement) {
-            // Create a separate video element just for poster generation
-            const posterVideo = document.createElement('video')
-            posterVideo.src = './demo.mp4'
-
-            // When poster video loads, seek to desired timestamp and capture frame
-            posterVideo.addEventListener('loadeddata', () => {
-                posterVideo.currentTime = 80 // Keep poster timestamp at 80 seconds
-                posterVideo.addEventListener('seeked', () => {
-                    const canvas = document.createElement('canvas')
-                    canvas.width = posterVideo.videoWidth
-                    canvas.height = posterVideo.videoHeight
-                    const ctx = canvas.getContext('2d')
-                    ctx.drawImage(posterVideo, 0, 0, canvas.width, canvas.height)
-                    const dataURI = canvas.toDataURL('image/jpeg')
-                    setPoster(dataURI)
-
-                    // Clean up the poster video element
-                    posterVideo.remove()
-                })
-            })
-        }
-    }, [])
-
+export default function MastHead() {
+    const [menuOpen, setMenuOpen] = useState(false)
+    
     return (
         <div className={styles.section}>
-            <div className="relative flex items-center justify-center">
-                <div className="relative z-30 py-5 text-2xl">
-                    <div className="text-center pt-6">
-                        <div className="grid grid-flow-row auto-rows-max">
-                            <h1 className="text-6xl mb-6 md:text-7xl">
-                                <span className="font-thin">Open</span>Adapt
-                                <span className="font-thin">.AI</span>
-                            </h1>
-                            <h2 className="text-4xl mt-0 mb-8 font-extralight">
-                                AI for Desktops.
-                            </h2>
-                            <div className="flex flex-col align-center justify-center">
-                                <div className="relative inline-block">
-                                    {/* <AnimatedLogo /> */}
-                                    {/* Set poster image dynamically */}
-                                    <video
-                                        ref={videoRef}
-                                        controls
-                                        className="demo-video"
-                                        style={{
-                                            maxWidth: '80%',
-                                            margin: '0 auto',
-                                        }}
-                                        poster={poster} // Use the captured frame as the poster
-                                    >
-                                        <source src="./demo.mp4" type="video/mp4" />
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
+            <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm">
+                <div className="container mx-auto px-4">
+                    <div className="flex items-center justify-between py-4">
+                        {/* Logo - Left Aligned */}
+                        <div className="flex items-center">
+                            <Image 
+                                src="/images/logo.svg" 
+                                alt="OmniMCP Logo" 
+                                width={40} 
+                                height={40} 
+                                className="mr-2"
+                            />
+                            <span className="text-2xl font-semibold text-white">OmniMCP</span>
+                        </div>
+                        
+                        {/* Navigation - Centered on Desktop */}
+                        <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                            <Link href="#features" className="text-white hover:text-blue-300 transition-colors font-medium">
+                                Features
+                            </Link>
+                            <Link href="#overview" className="text-white hover:text-blue-300 transition-colors font-medium">
+                                How It Works
+                            </Link>
+                            <Link href="#pricing" className="text-white hover:text-blue-300 transition-colors font-medium">
+                                Pricing
+                            </Link>
+                            <Link href="#trial" className="text-white hover:text-blue-300 transition-colors font-medium">
+                                Free Trial
+                            </Link>
+                        </nav>
+                        
+                        {/* Social Links - Right Aligned */}
+                        <div className="hidden md:flex items-center space-x-4">
+                            <a 
+                                href="https://github.com/OpenAdaptAI/OmniMCP" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-blue-300 transition-colors"
+                                aria-label="GitHub"
+                            >
+                                <FontAwesomeIcon icon={faGithub} className="text-xl" />
+                            </a>
+                            <a 
+                                href="https://discord.gg/fEEBqRryep" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-blue-300 transition-colors"
+                                aria-label="Discord"
+                            >
+                                <FontAwesomeIcon icon={faDiscord} className="text-xl" />
+                            </a>
+                            
+                            {/* GitHub Stars/Fork */}
+                            <div className="flex items-center space-x-2 ml-2">
+                                <a
+                                    className="github-button"
+                                    href="https://github.com/OpenAdaptAI/OmniMCP"
+                                    data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark;"
+                                    data-icon="octicon-star"
+                                    data-size="large"
+                                    data-show-count="true"
+                                    aria-label="Star OpenAdaptAI/OmniMCP on GitHub"
+                                >
+                                    Star
+                                </a>
+                                <a
+                                    className="github-button"
+                                    href="https://github.com/OpenAdaptAI/OmniMCP/fork"
+                                    data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark;"
+                                    data-icon="octicon-repo-forked"
+                                    data-size="large"
+                                    data-show-count="true"
+                                    aria-label="Fork OpenAdaptAI/OmniMCP on GitHub"
+                                >
+                                    Fork
+                                </a>
                             </div>
-                            <h3 className="mt-8 font-light">
-                                <span className="bg-white bg-opacity-20 inline-block p-2">
-                                    <b>Automate your workflows.</b>
-                                </span>
-                                <br />
-                                    {/*
-                                <span className="inline-block p-2">
-                                    Record, replay, and share
-                                    Show, don't tell.
-                                </span>
-                                    */}
-                                <CarouselSection />
-                                <span className="bg-white bg-opacity-20 inline-block p-2">
-                                    <b>No coding required.</b>
-                                </span>
-                            </h3>
-                            <div id="register">
-                                <div>
-                                    <Link
-                                        className="btn bg-transparent border-2 border-blue-400 text-blue-400 hover:border-blue-300 hover:text-blue-300 mt-10 mb-6 hover:bg-transparent"
-                                        href="#industries"
-                                    >
-                                        Learn How
-                                    </Link>
-                                    <Link
-                                        className="btn btn-primary mt-10 mb-6 ml-3"
-                                        href="#start"
-                                    >
-                                        Get Started
-                                    </Link>
-                                </div>
-                            </div>
-                            <EmailForm />
+                        </div>
+                        
+                        {/* Mobile menu button */}
+                        <button 
+                            className="md:hidden text-white p-2"
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            <FontAwesomeIcon icon={menuOpen ? faX : faBars} className="text-xl" />
+                        </button>
+                    </div>
+                </div>
+            </header>
+            
+            {/* Mobile menu */}
+            {menuOpen && (
+                <div className="fixed inset-0 z-50 bg-black/95 md:hidden pt-20">
+                    <div className="container mx-auto px-6 py-8">
+                        <nav className="flex flex-col space-y-6 text-center text-xl">
+                            <Link 
+                                href="#features" 
+                                className="text-white hover:text-blue-300 transition-colors py-2"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Features
+                            </Link>
+                            <Link 
+                                href="#overview" 
+                                className="text-white hover:text-blue-300 transition-colors py-2"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                How It Works
+                            </Link>
+                            <Link 
+                                href="#pricing" 
+                                className="text-white hover:text-blue-300 transition-colors py-2"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Pricing
+                            </Link>
+                            <Link 
+                                href="#trial" 
+                                className="text-white hover:text-blue-300 transition-colors py-2"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Free Trial
+                            </Link>
+                        </nav>
+                        
+                        <div className="flex justify-center space-x-8 mt-12">
+                            <a 
+                                href="https://github.com/OpenAdaptAI/OmniMCP" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-blue-300 transition-colors"
+                                aria-label="GitHub"
+                            >
+                                <FontAwesomeIcon icon={faGithub} className="text-3xl" />
+                            </a>
+                            <a 
+                                href="https://discord.gg/fEEBqRryep" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-blue-300 transition-colors"
+                                aria-label="Discord"
+                            >
+                                <FontAwesomeIcon icon={faDiscord} className="text-3xl" />
+                            </a>
                         </div>
                     </div>
                 </div>
-                {/* <AnimatedBackground /> */}
-                <div className="fixed top-0 right-0 z-50">
-                    {/* Github Icon */}
-                    <div
-                        className="relative z-50 inline-block mr-3"
-                        style={{ transform: 'translateY(-5px)' }}
-                    >
-                        <a href="https://github.com/OpenAdaptAI/OpenAdapt" aria-label="Join us on Github" title="Join us on Github">
-                            <FontAwesomeIcon
-                                icon={faGithub}
-                                className="text-2xl"
-                            />
-                        </a>
-                    </div>
-                    {/* Discord Icon */}
-                    <div
-                        className="relative z-50 inline-block mr-3"
-                        style={{ transform: 'translateY(-5px)' }}
-                    >
-                        <a href="https://discord.gg/fEEBqRryep" aria-label="Join us on Discord" title="Join us on Discord">
-                            <FontAwesomeIcon
-                                icon={faDiscord}
-                                className="text-2xl"
-                            />
-                        </a>
-                    </div>
-                    {/* X Icon */}
-                    <div
-                        className="relative z-50 inline-block mr-3"
-                        style={{ transform: 'translateY(-5px)' }}
-                    >
-                        <a href="https://x.com/OpenAdaptAI" aria-label="Join us on X" title="Join us on X">
-                            <FontAwesomeIcon
-                                icon={faXTwitter}
-                                className="text-2xl"
-                            />
-                        </a>
-                    </div>
-                    {/* LinkedIn Icon */}
-                    <div
-                        className="relative z-50 inline-block mr-3"
-                        style={{ transform: 'translateY(-5px)' }}
-                    >
-                        <a
-                            href="https://www.linkedin.com/company/95677624"
-                            aria-label="Join us on LinkedIn" title="Join us on LinkedIn"
-                        >
-                            <FontAwesomeIcon
-                                icon={faLinkedin}
-                                className="text-2xl"
-                            />
-                        </a>
-                    </div>
-                    {/* Github icons */}
-                    <div className="relative z-50 inline-block mr-2 mt-2">
-                        <a
-                            className="github-button mr-2"
-                            href="https://github.com/OpenAdaptAI/OpenAdapt/fork"
-                            data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark;"
-                            data-icon="octicon-repo-forked"
-                            data-size="large"
-                            data-show-count="true"
-                            aria-label="Fork OpenAdaptAI/OpenAdapt on GitHub"
-                        >
-                            Fork
-                        </a>
-                    </div>
-                    <div className="relative z-50 inline-block mr-2 mt-2">
-                        <a
-                            className="github-button"
-                            href="https://github.com/OpenAdaptAI/OpenAdapt"
-                            data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: dark;"
-                            data-icon="octicon-star"
-                            data-size="large"
-                            data-show-count="true"
-                            aria-label="Star OpenAdaptAI/OpenAdapt on GitHub"
-                        >
-                            Star
-                        </a>
+            )}
+            
+            <div className="relative flex items-center justify-center">
+                <div className="relative z-30 py-5 text-2xl">
+                    <div className="text-center pt-32"> {/* Increased top padding to accommodate fixed header */}
+                        <div className="grid grid-flow-row auto-rows-max">
+                            <h1 className="text-6xl mb-6 md:text-7xl">
+                                <span className="font-thin">Omni</span>MCP
+                            </h1>
+                            <h2 className="text-4xl mt-0 mb-8 font-extralight">
+                                Powerful UI Automation with AI Understanding
+                            </h2>
+                            <div className="mb-8 mx-auto max-w-4xl">
+                                <p className="text-xl font-light">
+                                    OmniMCP provides rich UI context and interaction capabilities to AI models through 
+                                    Model Context Protocol (MCP) and OmniParser.
+                                </p>
+                            </div>
+                            <div className="flex flex-col md:flex-row justify-center items-center mb-8 max-w-4xl mx-auto p-4 rounded-xl bg-white/10">
+                              <div className="md:w-2/5 mb-6 md:mb-0 text-left">
+                                <h3 className="text-xl font-semibold mb-3">Core Features:</h3>
+                                <ul className="space-y-2 pl-6 list-disc">
+                                    <li>Rich Visual Context</li>
+                                    <li>Natural Language Interface</li>
+                                    <li>Comprehensive Interactions</li>
+                                    <li>Structured Types</li>
+                                    <li>Robust Error Handling</li>
+                                </ul>
+                                </div>
+                                <div className="md:w-3/5 md:pl-6 text-left">
+                                  <pre className="bg-black/30 p-4 rounded-lg text-sm overflow-x-auto w-full">
+                                    <code className="text-xs sm:text-sm">
+                                {`from omnimcp import OmniMCP
+
+async def main():
+    mcp = OmniMCP()
+    state = await mcp.get_state()
+    if "login form" in state:
+        await mcp.act("Enter email in the first field")
+        await mcp.act("Click Login")
+    else:
+        await mcp.act("Click Sign up")`}
+                                    </code>
+                                  </pre>
+                                </div>
+                            </div>
+                            <div id="register">
+                                <div>
+                                    <Link
+                                        className="btn bg-transparent border-2 border-blue-400 text-blue-400 hover:border-blue-300 hover:text-blue-300 mt-4 mb-6 hover:bg-transparent"
+                                        href="#pricing"
+                                    >
+                                        See Pricing
+                                    </Link>
+                                    <Link
+                                        className="btn btn-primary mt-4 mb-6 ml-3"
+                                        href="#trial"
+                                    >
+                                        Start Free Trial
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="mt-6">
+                                <a 
+                                    href="https://github.com/OpenAdaptAI/OmniMCP" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center text-blue-300 hover:text-blue-200"
+                                >
+                                    <FontAwesomeIcon icon={faGithub} className="mr-2" />
+                                    View on GitHub
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

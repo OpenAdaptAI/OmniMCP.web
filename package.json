@@ -1,16 +1,13 @@
 {
-    "name": "nextjs-toolbox",
+    "name": "omnimcp-web",
     "version": "1.0.0",
-    "author": "Netlify Inc",
+    "author": "OpenAdapt.AI",
     "contributors": [
-        "Tara Manicsic",
-        "Prince Wilson",
-        "Charlie Gerard",
-        "Ben Hong"
+        "OpenAdapt Team"
     ],
-    "homepage": "https://github.com/netlify-templates/nextjs-toolbox",
+    "homepage": "https://github.com/OpenAdaptAI/OmniMCP.web",
     "bugs": {
-        "url": "https://github.com/netlify-templates/nextjs-toolbox/issues"
+        "url": "https://github.com/OpenAdaptAI/OmniMCP.web/issues"
     },
     "scripts": {
         "dev": "next dev",
@@ -41,6 +38,7 @@
         "react-slick": "^0.30.2"
     },
     "devDependencies": {
+        "@svgr/webpack": "^8.1.0",
         "@tailwindcss/typography": "^0.5.9",
         "autoprefixer": "^10.4.14",
         "netlify-plugin-cypress": "^1.2.0",
