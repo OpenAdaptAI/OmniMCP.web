@@ -232,13 +232,13 @@ export default function MastHead() {
                                     <pre className="flex-grow bg-black/50 p-5 rounded-xl text-sm overflow-x-auto w-full shadow-inner border border-gray-800/50">
                                         <code className="text-base font-mono text-left block">
                             {`from omnimcp import Omni
-                            
-                            omni = Omni()
-                            if "login form" in omni.get_state():
-                                await omni.act("Enter email in the first field")
-                                await omni.act("Click Login")
-                            else:
-                                await omni.act("Click Sign up")`}
+
+omni = Omni()
+if "login form" in await omni.get_state():
+    await omni.act("Enter email in the first field")
+    await omni.act("Click Login")
+else:
+    await omni.act("Click Sign up")`}
                                         </code>
                                     </pre>
                                     <div className="flex flex-col md:flex-row justify-between items-center mt-4">
