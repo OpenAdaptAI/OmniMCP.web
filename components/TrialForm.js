@@ -1,7 +1,7 @@
 // components/TrialForm.js
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { faPaperPlane, faGithub } from '@fortawesome/free-solid-svg-icons'
 
 export default function TrialForm() {
     const [email, setEmail] = useState('')
@@ -47,16 +47,28 @@ export default function TrialForm() {
         >
             {formSubmitted ? (
                 <div
-                    className="fade-in"
+                    className="fade-in max-w-xl text-center px-4"
                     style={{ opacity: 1, transition: 'opacity 1s ease-in' }}
                 >
                     <h2 className="font-light text-white text-2xl mb-4 text-center">
                         <FontAwesomeIcon icon={faPaperPlane} className="mr-4" />
-                        Thank You for Signing Up!
+                        Thanks for your interest!
                     </h2>
-                    <p className="text-white text-lg max-w-xl text-center">
-                        We've sent an email with instructions to get started with your free 14-day trial of OmniMCP.
+                    <p className="text-white text-lg mb-6">
+                        We're still setting things up, but we'll notify you as soon as our managed service is ready for early access.
                     </p>
+                    <p className="text-white text-lg mb-8">
+                        In the meantime, you can explore the open source version on GitHub.
+                    </p>
+                    <a 
+                        href="https://github.com/OpenAdaptAI/OmniMCP" 
+                        className="bg-white text-indigo-700 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 inline-flex items-center"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FontAwesomeIcon icon={faGithub} className="mr-2" />
+                        View on GitHub
+                    </a>
                 </div>
             ) : (
                 <form
@@ -80,10 +92,10 @@ export default function TrialForm() {
                             </label>
                         </p>
                         <h1 className="font-light text-3xl text-white my-0 text-center">
-                            Start Your Free Trial
+                            Join the Waitlist
                         </h1>
                         <h2 className="mt-6 mb-8 font-light text-white flex-auto text-center">
-                            Experience the power of OmniMCP for 14 days, no credit card required.
+                            Be the first to access our managed OmniMCP service when it launches.
                         </h2>
                         
                         <label
@@ -135,16 +147,20 @@ export default function TrialForm() {
                             placeholder="Describe your use case here..."
                         ></textarea>
                         
-                        <div
-                            className="mt-6 text-center"
-                        >
+                        <div className="mt-6 text-center">
                             <button
                                 className="bg-white text-indigo-700 hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300"
                                 disabled={isSubmitting}
                                 type="submit"
                             >
-                                {isSubmitting ? 'Submitting...' : 'Start Free Trial'}
+                                {isSubmitting ? 'Submitting...' : 'Join Waitlist'}
                             </button>
+                        </div>
+                        
+                        <div className="mt-6 text-center text-sm opacity-80">
+                            <p>
+                                Want to try it now? <a href="https://github.com/OpenAdaptAI/OmniMCP" className="underline hover:text-blue-300" target="_blank" rel="noopener noreferrer">Check out our open source version on GitHub</a>.
+                            </p>
                         </div>
                     </div>
                 </form>
