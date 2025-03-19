@@ -201,22 +201,20 @@ export default function MastHead() {
                                     </ul>
                                 </div>
                                 <div className="md:w-1/2 md:pl-6 text-left">
-                                    <pre className="bg-black/30 p-4 rounded-lg text-sm overflow-x-auto">
-                                        <code>
-{`from omnimcp import OmniMCP
-
-async def main():
-    mcp = OmniMCP()
-    
-    # Get current UI state
-    state = await mcp.get_screen_state()
-    
-    # Click a button
-    result = await mcp.click_element(
-        "Submit button"
-    )`}
-                                        </code>
-                                    </pre>
+                                  <pre className="bg-black/30 p-4 rounded-lg text-sm overflow-x-auto w-full">
+                                    <code className="text-xs sm:text-sm whitespace-pre-wrap">
+                                {`from omnimcp import OmniMCP
+                                
+                                async def main():
+                                    mcp = OmniMCP()
+                                    state = await mcp.get_state()
+                                    if "login form" in state:
+                                        await mcp.act("Enter email")
+                                        await mcp.act("Click Login")
+                                    else:
+                                        await mcp.act("Click Sign up")`}
+                                    </code>
+                                  </pre>
                                 </div>
                             </div>
                             <div id="register">
