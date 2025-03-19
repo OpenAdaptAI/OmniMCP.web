@@ -45,6 +45,12 @@ export default function MastHead() {
                             <Link href="#overview" className="text-white hover:text-blue-300 transition-colors font-medium">
                                 How It Works
                             </Link>
+                            <Link href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf" 
+                                className="text-white hover:text-blue-300 transition-colors font-medium"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Whitepaper
+                            </Link>
                             <Link href="#pricing" className="text-white hover:text-blue-300 transition-colors font-medium">
                                 Pricing
                             </Link>
