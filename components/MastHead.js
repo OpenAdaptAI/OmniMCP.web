@@ -218,6 +218,16 @@ else:
     await omni.act("Click Sign up")`}
                                     </code>
                                   </pre>
+                                    <div className="flex flex-col md:flex-row justify-between items-center mt-4">
+                                        <p className="text-sm text-gray-300 italic">Simple, powerful interface for UI automation</p>
+                                        <a href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
+                                           target="_blank" 
+                                           rel="noopener noreferrer"
+                                           className="text-sm text-blue-300 hover:text-blue-200 transition-colors flex items-center mt-2 md:mt-0">
+                                            <FontAwesomeIcon icon={faBookOpen} className="mr-1" />
+                                            Read the technical whitepaper
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div id="register">
@@ -235,6 +245,19 @@ else:
                                         Start Free Trial
                                     </Link>
                                 </div>
+                            </div>
+                            <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+                                <h3 className="text-xl font-bold mb-3">Technical Deep Dive</h3>
+                                <p className="mb-4">Understand the architecture and capabilities of OmniMCP in depth with our technical whitepaper.</p>
+                                <a 
+                                    href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                                >
+                                    <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+                                    Read the Whitepaper
+                                </a>
                             </div>
                             <div className="mt-6">
                                 <a 
