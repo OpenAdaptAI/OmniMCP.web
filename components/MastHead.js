@@ -23,7 +23,9 @@ export default function MastHead() {
     
     return (
         <div className={styles.section}>
+            {/* Header section remains unchanged */}
             <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm">
+                {/* Header content unchanged */}
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between py-4">
                         {/* Logo - Left Aligned */}
@@ -120,7 +122,7 @@ export default function MastHead() {
                 </div>
             </header>
             
-            {/* Mobile menu */}
+            {/* Mobile menu - unchanged */}
             {menuOpen && (
                 <div className="fixed inset-0 z-50 bg-black/95 md:hidden pt-20">
                     <div className="container mx-auto px-6 py-8">
@@ -180,7 +182,7 @@ export default function MastHead() {
             )}
             
             <div className="relative flex items-center justify-center">
-                <div className="relative z-30 py-5 text-2xl">
+                <div className="relative z-30 py-5 w-full max-w-7xl mx-auto px-4">
                     <div className="text-center pt-32"> {/* Increased top padding to accommodate fixed header */}
                         <div className="grid grid-flow-row auto-rows-max">
                             <h1 className="text-6xl mb-6 md:text-7xl">
@@ -195,21 +197,41 @@ export default function MastHead() {
                                     OmniParser and Model Context Protocol (MCP).
                                 </p>
                             </div>
-                            <div className="flex flex-col md:flex-row justify-center items-center mb-8 max-w-4xl mx-auto p-4 rounded-xl bg-white/10">
-                              <div className="md:w-2/5 mb-6 md:mb-0 text-left">
-                                <h3 className="text-xl font-semibold mb-3">Core Features:</h3>
-                                <ul className="space-y-2 pl-6 list-disc">
-                                    <li>Rich Visual Context</li>
-                                    <li>Natural Language Interface</li>
-                                    <li>Comprehensive Interactions</li>
-                                    <li>Structured Types</li>
-                                    <li>Robust Error Handling</li>
-                                </ul>
+
+                            {/* IMPROVED FEATURE SHOWCASE */}
+                            <div className="flex flex-col md:flex-row justify-center items-stretch mb-12 max-w-5xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-950/80 to-blue-950/80 shadow-2xl border border-indigo-900/50">
+                                {/* Feature list - Left side */}
+                                <div className="md:w-2/5 p-8 bg-indigo-950/30 flex flex-col justify-center">
+                                    <h3 className="text-2xl font-bold mb-6 text-white">Core Features:</h3>
+                                    <ul className="space-y-4">
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Rich Visual Context</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Natural Language Interface</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Comprehensive Interactions</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Structured Types</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Robust Error Handling</span>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div className="md:w-3/5 md:pl-6 text-left">
-                                  <pre className="bg-black/30 p-4 rounded-lg text-sm overflow-x-auto w-full">
-                                    <code className="text-xs sm:text-sm">
-                                {`from omnimcp import Omni
+                                
+                                {/* Code example - Right side */}
+                                <div className="md:w-3/5 p-8 flex flex-col">
+                                    <pre className="flex-grow bg-black/50 p-5 rounded-xl text-sm overflow-x-auto w-full shadow-inner border border-gray-800/50">
+                                        <code className="text-base font-mono">
+{`from omnimcp import Omni
 
 omni = Omni()
 if "login form" in omni.get_state():
@@ -217,55 +239,69 @@ if "login form" in omni.get_state():
     await omni.act("Click Login")
 else:
     await omni.act("Click Sign up")`}
-                                    </code>
-                                  </pre>
+                                        </code>
+                                    </pre>
                                     <div className="flex flex-col md:flex-row justify-between items-center mt-4">
                                         <p className="text-sm text-gray-300 italic">Simple, powerful interface for UI automation</p>
-                                        <a href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
-                                           target="_blank" 
-                                           rel="noopener noreferrer"
-                                           className="text-sm text-blue-300 hover:text-blue-200 transition-colors flex items-center mt-2 md:mt-0">
-                                            <FontAwesomeIcon icon={faBookOpen} className="mr-1" />
+                                        <a 
+                                            href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            className="text-sm text-blue-300 hover:text-blue-200 transition-colors flex items-center mt-2 md:mt-0"
+                                        >
+                                            <FontAwesomeIcon icon={faBookOpen} className="mr-2" />
                                             Read the technical whitepaper
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div id="register">
-                                <div>
+
+                            {/* CTA Buttons */}
+                            <div id="register" className="mb-10">
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                     <Link
-                                        className="btn bg-transparent border-2 border-blue-400 text-blue-400 hover:border-blue-300 hover:text-blue-300 mt-4 mb-6 hover:bg-transparent"
+                                        className="btn w-full sm:w-auto bg-transparent border-2 border-blue-400 text-blue-400 hover:border-blue-300 hover:text-blue-300 hover:bg-blue-900/20 transition-all"
                                         href="#pricing"
                                     >
                                         See Pricing
                                     </Link>
                                     <Link
-                                        className="btn btn-primary mt-4 mb-6 ml-3"
+                                        className="btn w-full sm:w-auto bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:from-blue-500 hover:to-blue-400 border-0 shadow-lg hover:shadow-xl transition-all"
                                         href="#trial"
                                     >
                                         Start Free Trial
                                     </Link>
                                 </div>
                             </div>
-                            <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                                <h3 className="text-xl font-bold mb-3">Technical Deep Dive</h3>
-                                <p className="mb-4">Understand the architecture and capabilities of OmniMCP in depth with our technical whitepaper.</p>
-                                <a 
-                                    href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                                >
-                                    <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
-                                    Read the Whitepaper
-                                </a>
+
+                            {/* Technical Deep Dive Card */}
+                            <div className="max-w-3xl mx-auto bg-gradient-to-br from-blue-900/30 to-indigo-900/30 p-8 rounded-2xl backdrop-blur-sm shadow-xl border border-indigo-800/30 hover:border-indigo-700/40 transition-all">
+                                <div className="flex flex-col md:flex-row items-center gap-6">
+                                    <div className="md:w-3/4 text-left">
+                                        <h3 className="text-2xl font-bold mb-3 text-white">Technical Deep Dive</h3>
+                                        <p className="text-gray-200 mb-0">Understand the architecture and capabilities of OmniMCP in depth with our comprehensive technical whitepaper.</p>
+                                    </div>
+                                    <div className="md:w-1/4 flex justify-center md:justify-end">
+                                        <a 
+                                            href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors shadow-md hover:shadow-lg"
+                                        >
+                                            <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+                                            Read Whitepaper
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="mt-6">
+
+                            {/* GitHub Link */}
+                            <div className="mt-8 mb-6">
                                 <a 
                                     href="https://github.com/OpenAdaptAI/OmniMCP" 
                                     target="_blank" 
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center text-blue-300 hover:text-blue-200"
+                                    className="inline-flex items-center px-5 py-2 text-blue-300 hover:text-blue-200 border border-blue-800/50 rounded-lg hover:bg-blue-900/20 transition-all"
                                 >
                                     <FontAwesomeIcon icon={faGithub} className="mr-2" />
                                     View on GitHub
