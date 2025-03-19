@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowPointer } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -10,8 +11,6 @@ import {
     faGithub,
     faXTwitter,
 } from '@fortawesome/free-brands-svg-icons'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 import AnimatedBackground from '@components/AnimatedBackground'
 import EmailForm from '@components/EmailForm'
@@ -21,9 +20,38 @@ import styles from './MastHead.module.css'
 export default function MastHead() {
     return (
         <div className={styles.section}>
+            {/* Add a navbar/header at the top with logo */}
+            <div className="absolute top-0 left-0 right-0 z-40 p-4 flex justify-between items-center">
+                <div className="flex items-center">
+                    <Image 
+                        src="/images/logo.svg" 
+                        alt="OmniMCP Logo" 
+                        width={40} 
+                        height={40} 
+                        className="mr-2"
+                    />
+                    <span className="text-2xl font-semibold text-white">OmniMCP</span>
+                </div>
+                
+                <nav className="hidden md:flex space-x-6">
+                    <Link href="#features" className="text-white hover:text-blue-300 transition-colors">
+                        Features
+                    </Link>
+                    <Link href="#overview" className="text-white hover:text-blue-300 transition-colors">
+                        How It Works
+                    </Link>
+                    <Link href="#pricing" className="text-white hover:text-blue-300 transition-colors">
+                        Pricing
+                    </Link>
+                    <Link href="#trial" className="text-white hover:text-blue-300 transition-colors">
+                        Free Trial
+                    </Link>
+                </nav>
+            </div>
+            
             <div className="relative flex items-center justify-center">
                 <div className="relative z-30 py-5 text-2xl">
-                    <div className="text-center pt-6">
+                    <div className="text-center pt-20"> {/* Added more top padding to accommodate the navbar */}
                         <div className="grid grid-flow-row auto-rows-max">
                             <h1 className="text-6xl mb-6 md:text-7xl">
                                 <span className="font-thin">Omni</span>MCP
