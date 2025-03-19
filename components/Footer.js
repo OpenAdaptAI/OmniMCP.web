@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowPointer } from '@fortawesome/free-solid-svg-icons'
+import { faArrowPointer, faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './Footer.module.css'
 
@@ -44,6 +44,20 @@ export default function Footer() {
                     className="mx-auto mb-10"
                 ></iframe>
                 <div className={styles.footerContent}>
+                    <div className={styles.footerLinks}>
+                        <a
+                            href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.link}
+                        >
+                            <FontAwesomeIcon
+                                icon={faFilePdf}
+                                className="mr-1"
+                            />
+                            Whitepaper
+                        </a>
+                    </div>
                     <div className={`${styles.footerLinks} pt-20`}>
                         <a
                             href="https://github.com/OpenAdaptAI/OpenAdapt?tab=readme-ov-file#-open-contract-positions-at-openadaptai"
