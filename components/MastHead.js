@@ -231,14 +231,14 @@ export default function MastHead() {
                                 <div className="md:w-3/5 p-8 flex flex-col">
                                     <pre className="flex-grow bg-black/50 p-5 rounded-xl text-sm overflow-x-auto w-full shadow-inner border border-gray-800/50">
                                         <code className="text-base font-mono text-left block">
-                                {`from omnimcp import Omni
-                                
-                                omni = Omni()
-                                if "login form" in omni.get_state():
-                                    await omni.act("Enter email in the first field")
-                                    await omni.act("Click Login")
-                                else:
-                                    await omni.act("Click Sign up")`}
+                            {`from omnimcp import Omni
+                            
+                            omni = Omni()
+                            if "login form" in omni.get_state():
+                                await omni.act("Enter email in the first field")
+                                await omni.act("Click Login")
+                            else:
+                                await omni.act("Click Sign up")`}
                                         </code>
                                     </pre>
                                     <div className="flex flex-col md:flex-row justify-between items-center mt-4">
@@ -254,8 +254,8 @@ export default function MastHead() {
                                         </a>
                                     </div>
                                 </div>
-
-
+                            </div>
+                            
                             {/* CTA Buttons */}
                             <div id="register" className="mb-10">
                                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -273,7 +273,7 @@ export default function MastHead() {
                                     </Link>
                                 </div>
                             </div>
-
+                            
                             {/* Technical Deep Dive Card */}
                             <div className="max-w-3xl mx-auto bg-gradient-to-br from-blue-900/30 to-indigo-900/30 p-8 rounded-2xl backdrop-blur-sm shadow-xl border border-indigo-800/30 hover:border-indigo-700/40 transition-all">
                                 <div className="flex flex-col md:flex-row items-center gap-6">
@@ -294,7 +294,7 @@ export default function MastHead() {
                                     </div>
                                 </div>
                             </div>
-
+                            
                             {/* GitHub Link */}
                             <div className="mt-8 mb-6">
                                 <a 
@@ -307,6 +307,7 @@ export default function MastHead() {
                                     View on GitHub
                                 </a>
                             </div>
+
                         </div>
                     </div>
                 </div>
