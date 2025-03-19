@@ -5,23 +5,23 @@ export default function HowItWorks() {
   const steps = [
     {
       title: "Spatial Feature Understanding",
-      description: "OmniMCP develops a deep understanding of the user interface's visual layout using OmniParser. It performs detailed visual parsing, segmenting the screen and identifying all interactive elements, their types, content, and relationships.",
-      image: "/images/spatial-features.png",
+      description: "OmniMCP begins by developing a deep understanding of the user interface's visual layout. Using OmniParser, it performs detailed visual parsing, segmenting the screen and identifying all interactive and informational elements.",
+      image: "/images/spatial-features.svg",
     },
     {
       title: "Temporal Feature Understanding",
-      description: "To capture dynamic UI aspects, OmniMCP tracks user interactions and state transitions, building a Process Graph that represents user workflow patterns. This temporal understanding allows models to reason about interaction history.",
-      image: "/images/temporal-features.png",
+      description: "To capture the dynamic aspects of the UI, OmniMCP tracks user interactions and the resulting state transitions. It builds a Process Graph that represents the flow of user workflows.",
+      image: "/images/temporal-features.svg",
     },
     {
       title: "Internal API Generation",
-      description: "Using the rich spatial and temporal context, OmniMCP leverages a Large Language Model to generate a context-specific API through In-Context Learning. This internal API reflects the understood UI features for precise interactions.",
-      image: "/images/api-generation.png",
+      description: "Utilizing the rich spatial and temporal context, OmniMCP leverages a Large Language Model to generate an internal, context-specific API through In-Context Learning.",
+      image: "/images/api-generation.svg",
     },
     {
       title: "External API Publication (MCP)",
-      description: "Finally, OmniMCP exposes the dynamically generated API through the Model Context Protocol (MCP). This provides a consistent interface for both humans and AI models to interact with UI systems.",
-      image: "/images/api-publication.png",
+      description: "Finally, OmniMCP exposes this dynamically generated internal API through the Model Context Protocol (MCP), providing a consistent interface for both humans and AI models.",
+      image: "/images/api-publication.svg",
     },
   ]
 
@@ -48,7 +48,7 @@ export default function HowItWorks() {
                     alt={step.title}
                     width={400}
                     height={300}
-                    className="rounded-lg shadow-md"
+                    className="rounded-lg"
                   />
                 </div>
               </div>
