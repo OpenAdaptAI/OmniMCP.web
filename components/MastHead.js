@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookOpen, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { faArrowPointer, faBars, faX } from '@fortawesome/free-solid-svg-icons'
 import {
     faLinkedin,
