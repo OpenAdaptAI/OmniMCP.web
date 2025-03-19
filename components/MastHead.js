@@ -230,15 +230,15 @@ export default function MastHead() {
                                 {/* Code example - Right side */}
                                 <div className="md:w-3/5 p-8 flex flex-col">
                                     <pre className="flex-grow bg-black/50 p-5 rounded-xl text-sm overflow-x-auto w-full shadow-inner border border-gray-800/50">
-                                        <code className="text-base font-mono">
-{`from omnimcp import Omni
-
-omni = Omni()
-if "login form" in omni.get_state():
-    await omni.act("Enter email in the first field")
-    await omni.act("Click Login")
-else:
-    await omni.act("Click Sign up")`}
+                                        <code className="text-base font-mono text-left block">
+                                {`from omnimcp import Omni
+                                
+                                omni = Omni()
+                                if "login form" in omni.get_state():
+                                    await omni.act("Enter email in the first field")
+                                    await omni.act("Click Login")
+                                else:
+                                    await omni.act("Click Sign up")`}
                                         </code>
                                     </pre>
                                     <div className="flex flex-col md:flex-row justify-between items-center mt-4">
@@ -254,7 +254,7 @@ else:
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+
 
                             {/* CTA Buttons */}
                             <div id="register" className="mb-10">
