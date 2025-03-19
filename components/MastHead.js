@@ -204,14 +204,14 @@ export default function MastHead() {
                                     <code className="text-xs sm:text-sm">
                                 {`from omnimcp import OmniMCP
 
-async def main():
-    mcp = OmniMCP()
-    state = await mcp.get_state()
-    if "login form" in state:
-        await mcp.act("Enter email in the first field")
-        await mcp.act("Click Login")
-    else:
-        await mcp.act("Click Sign up")`}
+from omnimcp import Omni
+
+omni = Omni()
+if "login form" in omni.get_state():
+    await omni.act("Enter email in the first field")
+    await omni.act("Click Login")
+else:
+    await omni.act("Click Sign up")`}
                                     </code>
                                   </pre>
                                 </div>
