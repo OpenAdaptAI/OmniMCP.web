@@ -184,7 +184,7 @@ export default function MastHead() {
                             </h2>
                             <div className="mb-8 mx-auto max-w-4xl">
                                 <p className="text-xl font-light">
-                                    OmniMCP provides rich UI context and interaction capabilities to AI models through 
+                                    OmniMCP provides rich UI context and powerful interaction capabilities to AI models through 
                                     Model Context Protocol (MCP) and OmniParser.
                                 </p>
                             </div>
