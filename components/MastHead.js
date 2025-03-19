@@ -22,11 +22,10 @@ export default function MastHead() {
     
     return (
         <div className={styles.section}>
-            {/* Fixed header with logo and navigation */}
             <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm">
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between py-4">
-                        {/* Logo */}
+                        {/* Logo - Left Aligned */}
                         <div className="flex items-center">
                             <Image 
                                 src="/images/logo.svg" 
@@ -38,23 +37,23 @@ export default function MastHead() {
                             <span className="text-2xl font-semibold text-white">OmniMCP</span>
                         </div>
                         
-                        {/* Navigation - Desktop */}
-                        <nav className="hidden md:flex space-x-6">
-                            <Link href="#features" className="text-white hover:text-blue-300 transition-colors">
+                        {/* Navigation - Centered on Desktop */}
+                        <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
+                            <Link href="#features" className="text-white hover:text-blue-300 transition-colors font-medium">
                                 Features
                             </Link>
-                            <Link href="#overview" className="text-white hover:text-blue-300 transition-colors">
+                            <Link href="#overview" className="text-white hover:text-blue-300 transition-colors font-medium">
                                 How It Works
                             </Link>
-                            <Link href="#pricing" className="text-white hover:text-blue-300 transition-colors">
+                            <Link href="#pricing" className="text-white hover:text-blue-300 transition-colors font-medium">
                                 Pricing
                             </Link>
-                            <Link href="#trial" className="text-white hover:text-blue-300 transition-colors">
+                            <Link href="#trial" className="text-white hover:text-blue-300 transition-colors font-medium">
                                 Free Trial
                             </Link>
                         </nav>
                         
-                        {/* Social Links - Desktop */}
+                        {/* Social Links - Right Aligned */}
                         <div className="hidden md:flex items-center space-x-4">
                             <a 
                                 href="https://github.com/OpenAdaptAI/OmniMCP" 
@@ -189,27 +188,32 @@ export default function MastHead() {
                                     Model Context Protocol (MCP) and OmniParser.
                                 </p>
                             </div>
-                            <div className="flex flex-col md:flex-row justify-center items-center mb-8 max-w-3xl mx-auto p-4 rounded-xl bg-white/10">
-                                <div className="md:w-1/2 mb-6 md:mb-0 text-left">
-                                    <h3 className="text-xl font-semibold mb-3">Core Features:</h3>
-                                    <ul className="space-y-2 pl-6 list-disc">
-                                        <li>Rich Visual Context</li>
-                                        <li>Natural Language Interface</li>
-                                        <li>Comprehensive Interactions</li>
-                                        <li>Structured Types</li>
-                                        <li>Robust Error Handling</li>
-                                    </ul>
+                            <div className="flex flex-col md:flex-row justify-center items-center mb-8 max-w-4xl mx-auto p-4 rounded-xl bg-white/10">
+                              <div className="md:w-2/5 mb-6 md:mb-0 text-left">
+                                <h3 className="text-xl font-semibold mb-3">Core Features:</h3>
+                                <ul className="space-y-2 pl-6 list-disc">
+                                    <li>Rich Visual Context</li>
+                                    <li>Natural Language Interface</li>
+                                    <li>Comprehensive Interactions</li>
+                                    <li>Structured Types</li>
+                                    <li>Robust Error Handling</li>
+                                </ul>
                                 </div>
-                                <div className="md:w-1/2 md:pl-6 text-left">
+                                <div className="md:w-3/5 md:pl-6 text-left">
                                   <pre className="bg-black/30 p-4 rounded-lg text-sm overflow-x-auto w-full">
-                                    <code className="text-xs sm:text-sm whitespace-pre-wrap">
+                                    <code className="text-xs sm:text-sm">
                                 {`from omnimcp import OmniMCP
                                 
                                 async def main():
                                     mcp = OmniMCP()
+                                    
+                                    # Get UI state
                                     state = await mcp.get_state()
+                                    
+                                    # Conditional action
                                     if "login form" in state:
-                                        await mcp.act("Enter email")
+                                        # New concise API
+                                        await mcp.act("Enter email in the first field")
                                         await mcp.act("Click Login")
                                     else:
                                         await mcp.act("Click Sign up")`}
