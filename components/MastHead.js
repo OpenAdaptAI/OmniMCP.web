@@ -202,9 +202,7 @@ export default function MastHead() {
                                 <div className="md:w-3/5 md:pl-6 text-left">
                                   <pre className="bg-black/30 p-4 rounded-lg text-sm overflow-x-auto w-full">
                                     <code className="text-xs sm:text-sm">
-                                {`from omnimcp import OmniMCP
-
-from omnimcp import Omni
+                                {`from omnimcp import Omni
 
 omni = Omni()
 if "login form" in omni.get_state():
