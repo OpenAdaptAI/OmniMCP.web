@@ -193,8 +193,8 @@ export default function MastHead() {
                             </h2>
                             <div className="mb-8 mx-auto max-w-4xl">
                                 <p className="text-xl font-light">
-                                    OmniMCP provides rich UI context and powerful interaction capabilities to AI models through 
-                                    OmniParser and Model Context Protocol (MCP).
+                                  OmniMCP is an agent-native interface for Vision-Language Models, featuring memory persistence, rich UI context, scene graph tracking, and powerful interaction capabilities through 
+                                  OmniParser and the Model Context Protocol (MCP).
                                 </p>
                             </div>
 
