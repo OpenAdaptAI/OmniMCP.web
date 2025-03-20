@@ -240,22 +240,22 @@ export default function MastHead() {
                             
                               {/* Code example - Right side (expanded width, reduced padding) */}
                               <div className="md:w-2/3 p-6 flex flex-col">
-                                <pre className="flex-grow bg-black/50 p-4 rounded-xl text-sm overflow-x-auto shadow-inner border border-gray-800/50">
+                                <pre className="flex-grow bg-black/50 p-4 rounded-xl text-sm overflow-x-auto shadow-inner border border-gray-800/50 text-left">
                                   <code className="text-base font-mono whitespace-pre">
                             {`from omnimcp import Omni
                             
-                            omni = Omni()
-                            with omni.session():
-                                email = omni.recall("credentials.email")
+omni = Omni()
+with omni.session():
+    email = omni.recall("credentials.email")
                             
-                                if omni.is("Login form ready"):
-                                    omni.do(f"Enter {email}")
-                                    omni.do("Submit login")
-                                else:
-                                    omni.do(f"Sign up with {email}")
+    if omni.is("Login form ready"):
+        omni.do(f"Enter {email}")
+        omni.do("Submit login")
                             
-                                txn_date = omni.observe("latest transaction date")
-                                omni.store("user.last_transaction_date", txn_date)`}
+    omni.store(
+        "user.last_transaction_date",
+        omni.observe("latest transaction date")
+    )`}
                                   </code>
                                 </pre>
                                 <div className="flex flex-col md:flex-row justify-between items-center mt-4">
