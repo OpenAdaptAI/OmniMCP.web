@@ -193,68 +193,86 @@ export default function MastHead() {
                             </h2>
                             <div className="mb-8 mx-auto max-w-4xl">
                                 <p className="text-xl font-light">
-                                    OmniMCP provides rich UI context and powerful interaction capabilities to AI models through 
-                                    OmniParser and Model Context Protocol (MCP).
+                                  OmniMCP is an agent-native interface for Vision-Language Models, featuring memory persistence, rich UI context, scene graph tracking, and powerful interaction capabilities through 
+                                  OmniParser and the Model Context Protocol (MCP).
                                 </p>
                             </div>
 
-                            {/* IMPROVED FEATURE SHOWCASE */}
-                            <div className="flex flex-col md:flex-row justify-center items-stretch mb-12 max-w-5xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-950/80 to-blue-950/80 shadow-2xl border border-indigo-900/50">
-                                {/* Feature list - Left side */}
-                                <div className="md:w-2/5 p-8 bg-indigo-950/30 flex flex-col justify-center">
-                                    <h3 className="text-2xl font-bold mb-6 text-white">Core Features:</h3>
-                                    <ul className="space-y-4">
-                                        <li className="flex items-start">
-                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
-                                            <span className="text-xl font-light">Rich Visual Context</span>
-                                        </li>
-                                        <li className="flex items-start">
-                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
-                                            <span className="text-xl font-light">Natural Language Interface</span>
-                                        </li>
-                                        <li className="flex items-start">
-                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
-                                            <span className="text-xl font-light">Comprehensive Interactions</span>
-                                        </li>
-                                        <li className="flex items-start">
-                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
-                                            <span className="text-xl font-light">Structured Types</span>
-                                        </li>
-                                        <li className="flex items-start">
-                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
-                                            <span className="text-xl font-light">Robust Error Handling</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                                
-                                {/* Code example - Right side */}
-                                <div className="md:w-3/5 p-8 flex flex-col">
-                                    <pre className="flex-grow bg-black/50 p-5 rounded-xl text-sm overflow-x-auto w-full shadow-inner border border-gray-800/50">
-                                        <code className="text-base font-mono text-left block">
+                            <div className="flex flex-col md:flex-row justify-center items-stretch mb-12 max-w-6xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-950/80 to-blue-950/80 shadow-2xl border border-indigo-900/50">
+                              {/* Feature list - Left side */}
+                              <div className="md:w-1/3 p-6 bg-indigo-950/30 flex flex-col justify-center">
+                                <h3 className="text-2xl font-bold mb-6 text-white">Core Features:</h3>
+                                <ul className="space-y-4">
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Agent-Native Interface</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Rich Visual Context</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Scene Graph Tracking</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Memory Persistence</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Natural Language UI</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Comprehensive Actions</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Structured Types</span>
+                                  </li>
+                                  <li className="flex items-start">
+                                    <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                    <span className="text-lg font-light">Robust Error Handling</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            
+                              {/* Code example - Right side (expanded width, reduced padding) */}
+                              <div className="md:w-2/3 p-6 flex flex-col">
+                                <pre className="flex-grow bg-black/50 p-4 rounded-xl text-sm overflow-x-auto shadow-inner border border-gray-800/50 text-left">
+                                  <code className="text-base font-mono whitespace-pre">
                             {`from omnimcp import Omni
-
+                            
 omni = Omni()
-if "login form" in await omni.get_state():
-    await omni.act("Enter email in the first field")
-    await omni.act("Click Login")
-else:
-    await omni.act("Click Sign up")`}
-                                        </code>
-                                    </pre>
-                                    <div className="flex flex-col md:flex-row justify-between items-center mt-4">
-                                        <p className="text-sm text-gray-300 italic">Simple, powerful interface for UI automation</p>
-                                        <a 
-                                            href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="text-sm text-blue-300 hover:text-blue-200 transition-colors flex items-center mt-2 md:mt-0"
-                                        >
-                                            <FontAwesomeIcon icon={faBookOpen} className="mr-2" />
-                                            Read the technical whitepaper
-                                        </a>
-                                    </div>
+with omni.session():
+    email = omni.recall("credentials.email")
+                            
+    if omni.is("Login form ready"):
+        omni.do(f"Enter {email}")
+        omni.do("Submit login")
+                            
+    omni.store(
+        "user.last_transaction_date",
+        omni.observe("latest transaction date")
+    )`}
+                                  </code>
+                                </pre>
+                                <div className="flex flex-col md:flex-row justify-between items-center mt-4">
+                                  <p className="text-sm text-gray-300 italic">Simple, powerful interface for UI automation</p>
+                                  <a
+                                    href="https://github.com/OpenAdaptAI/OmniMCP/blob/main/paper/omnimcp_whitepaper.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm text-blue-300 hover:text-blue-200 transition-colors flex items-center mt-2 md:mt-0"
+                                  >
+                                    <FontAwesomeIcon icon={faBookOpen} className="mr-2" />
+                                    Read the technical whitepaper
+                                  </a>
                                 </div>
+                              </div>
                             </div>
+
                             
                             {/* CTA Buttons */}
                             <div id="register" className="mb-10">
