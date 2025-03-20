@@ -183,21 +183,23 @@ export default function MastHead() {
             
             <div className="relative flex items-center justify-center">
                 <div className="relative z-30 py-5 w-full max-w-7xl mx-auto px-4">
-                    <div className="text-center pt-32"> {/* Increased top padding to accommodate fixed header */}
+                    <div className="text-center pt-20">
                         <div className="grid grid-flow-row auto-rows-max">
-                            <h1 className="text-6xl mb-6 md:text-7xl">
-                                <span className="font-thin">Omni</span>MCP
-                            </h1>
-                            <h2 className="text-4xl mt-0 mb-8 font-extralight">
-                                Agent-Native Interface for Vision-Language UI Automation
-                            </h2>
-                            <div className="mb-8 mx-auto max-w-4xl">
-                                <p className="text-xl font-light">
-                                    Unlock powerful automation through scene graph tracking, rich visual context, persistent memory,
-                                    and intuitive interactions powered by OmniParser and the Model Context Protocol (MCP).
-                                </p>
-                            </div>
-
+                          <div className="mb-4 inline-block rounded-full bg-gradient-to-r from-blue-700 to-indigo-600 px-5 py-1 shadow-md">
+                            <span className="text-sm font-semibold text-white uppercase tracking-wider">Automate Any UI Effortlessly</span>
+                          </div>
+                          <h1 className="text-6xl mb-6 md:text-7xl">
+                            <span className="font-thin">Omni</span>MCP
+                          </h1>
+                          <h2 className="text-4xl mt-0 mb-8 font-extralight">
+                            Agent-Native Interface for Vision-Language UI Automation
+                          </h2>
+                          <div className="mb-8 mx-auto max-w-4xl">
+                            <p className="text-xl font-light">
+                              Unlock powerful automation through scene graph tracking, rich visual context, persistent memory,
+                              and intuitive interactions powered by OmniParser and the Model Context Protocol (MCP).
+                            </p>
+                          </div>
                             <div className="flex flex-col md:flex-row justify-center items-stretch mb-12 max-w-6xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-950/80 to-blue-950/80 shadow-2xl border border-indigo-900/50">
                               {/* Feature list - Left side */}
                               <div className="md:w-1/3 p-6 bg-indigo-950/30 flex flex-col justify-center">
