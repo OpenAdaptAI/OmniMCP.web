@@ -206,15 +206,27 @@ export default function MastHead() {
                                     <ul className="space-y-4">
                                         <li className="flex items-start">
                                             <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Agent-Native Interface</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
                                             <span className="text-xl font-light">Rich Visual Context</span>
                                         </li>
                                         <li className="flex items-start">
                                             <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
-                                            <span className="text-xl font-light">Natural Language Interface</span>
+                                            <span className="text-xl font-light">Scene Graph Tracking</span>
                                         </li>
                                         <li className="flex items-start">
                                             <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
-                                            <span className="text-xl font-light">Comprehensive Interactions</span>
+                                            <span className="text-xl font-light">Memory Persistence</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Natural Language UI</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
+                                            <span className="text-xl font-light">Comprehensive Actions</span>
                                         </li>
                                         <li className="flex items-start">
                                             <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3"></span>
