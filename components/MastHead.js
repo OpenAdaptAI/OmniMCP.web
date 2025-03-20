@@ -246,7 +246,6 @@ export default function MastHead() {
                             {`from omnimcp import Omni
 
 omni = Omni()
-
 with omni.session():
     email = omni.recall("credentials.email")
 
