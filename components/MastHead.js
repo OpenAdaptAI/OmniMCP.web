@@ -234,11 +234,17 @@ export default function MastHead() {
                             {`from omnimcp import Omni
 
 omni = Omni()
-if "login form" in await omni.get_state():
-    await omni.act("Enter email in the first field")
-    await omni.act("Click Login")
-else:
-    await omni.act("Click Sign up")`}
+
+with omni.session():
+    email = omni.recall("credentials.email")
+
+    if omni.is("Login form ready"):
+        omni.do(f"Enter {email}")
+        omni.do("Submit login")
+    else:
+        omni.do(f"Sign up with {email}")
+
+    omni.store("user.last_transaction_date", omni.observe("latest transaction date"))`}
                                         </code>
                                     </pre>
                                     <div className="flex flex-col md:flex-row justify-between items-center mt-4">
