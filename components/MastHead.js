@@ -256,7 +256,8 @@ with omni.session():
     else:
         omni.do(f"Sign up with {email}")
 
-    omni.store("user.last_transaction_date", omni.observe("latest transaction date"))`}
+    txn_date = omni.observe("latest transaction date")
+    omni.store("user.last_transaction_date", txn_date)`}
                                         </code>
                                     </pre>
                                     <div className="flex flex-col md:flex-row justify-between items-center mt-4">
