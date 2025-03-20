@@ -26,7 +26,7 @@ export default function EmailForm() {
         */
 
         // Using fetch to submit form data to Netlify according to their AJAX submission guide
-        fetch('/form.html', {
+        fetch('/__forms.html', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString(),
