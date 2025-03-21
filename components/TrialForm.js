@@ -13,6 +13,7 @@ export default function TrialForm() {
         return new URLSearchParams(data).toString()
     }
 
+    /*
     const handleSubmit = async (event) => {
         event.preventDefault()
         setIsSubmitting(true)
@@ -21,7 +22,7 @@ export default function TrialForm() {
         formData.append('form-name', 'trial-signup') // Ensure this matches Netlify
 
         try {
-            await fetch('/', {
+            await fetch('/__forms.html', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: encodeFormData(formData),
@@ -34,6 +35,33 @@ export default function TrialForm() {
         } finally {
             setIsSubmitting(false)
         }
+    }
+    */
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        setIsSubmitting(true)
+
+        const formData = new FormData(event.target)
+        formData.append('form-name', 'trial-signup')
+
+        fetch('/__forms.html', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    setFormSubmitted(true) // Hide form and show success message on successful submission
+                    console.log('Form successfully submitted')
+                } else {
+                    console.error('Form submission failed')
+                }
+                setIsSubmitting(false)
+            })
+            .catch((error) => {
+                console.error('Form submission error:', error)
+                setIsSubmitting(false)
+            })
     }
 
     return (
