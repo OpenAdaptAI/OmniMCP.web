@@ -330,7 +330,6 @@ with omni.session():
                                     View on GitHub
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </div>
