@@ -245,17 +245,19 @@ export default function MastHead() {
                                 <pre className="flex-grow bg-black/50 p-4 rounded-xl text-sm overflow-x-auto shadow-inner border border-gray-800/50 text-left">
                                   <code className="text-base font-mono whitespace-pre">
                             {`from omnimcp import Omni
-                            
-omni = Omni()
-with omni.session():
-    email = omni.recall("credentials.email")
-                            
-    if omni.is("Login form ready"):
-        omni.do(f"Enter {email}")
-        omni.do("Submit login")
-                            
-    omni.observe("latest transaction date")
-        .store("user.last_transaction_date")`}
+
+omni = Omni(endpoint="localhost:1024")  # or omni.api
+
+# Log in and get applicant's latest underwriting date
+@omni.publish
+def extract_underwriting_date(o):
+    if o.is("Login form ready"):
+        o.do(f"Enter {o.recall('credentials')}")
+        o.do("Submit login")
+        o.observe("latest underwriting date")
+        o.store("applicant.last_underwriting_date")
+
+omni.session("extract_underwriting_date").run()`}
                                   </code>
                                 </pre>
                                 <div className="flex flex-col md:flex-row justify-between items-center mt-4">
